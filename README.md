@@ -5,12 +5,16 @@ AskVid lets you ask natural-language questions about any YouTube video and get i
 ---
 
 [Live Demo](https://askvid.netlify.app)
-
 ## Screenshots
 
-| Landing Page | Chat Interface |
-| ------------ | -------------- |
-| ![Landing screenshot](docs/screenshots/landing.png) | ![Chat screenshot](docs/screenshots/chat.png) |
+ <img width="1469" alt="Screenshot 2025-06-30 at 1 34 07 PM" src="https://github.com/user-attachments/assets/d363777b-a3ca-4137-88ec-8446d4a8b289" />
+
+ <img width="1470" alt="Screenshot 2025-06-30 at 1 35 42 PM" src="https://github.com/user-attachments/assets/ca68e22b-a199-4ad5-b91e-97c1f396116e" />
+
+<img width="1470" alt="Screenshot 2025-06-30 at 1 38 02 PM" src="https://github.com/user-attachments/assets/44300ff3-7848-4c65-a87b-58210128de4f" />
+
+<img width="1470" alt="Screenshot 2025-06-30 at 1 39 20 PM" src="https://github.com/user-attachments/assets/706c325b-f89f-4397-8d67-ecef5b479d0c" />
+
 
 ## Features
 
