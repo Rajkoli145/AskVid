@@ -7,7 +7,7 @@ export interface AIResponse {
 }
 
 class GeminiService {
-  private apiKey: string | null = null;
+  private apiKey: string = 'AIzaSyCCo2HaFC6-6ntFXilIQ_vTDm_l5jDVco0';
   private transcript: string = '';
   private segments: any[] = [];
   private videoTitle: string = '';
@@ -15,23 +15,7 @@ class GeminiService {
   private conversationHistory: Array<{role: string, content: string}> = [];
 
   constructor() {
-    this.initializeApiKey();
-  }
-
-  private initializeApiKey() {
-    // Check localStorage first, then environment variable
-    const localStorageKey = localStorage.getItem('askvid_gemini_api_key');
-    const envKey = import.meta.env.VITE_GEMINI_API_KEY;
-    const globalKey = (window as any).__GEMINI_API_KEY__;
-
-    const apiKey = localStorageKey || globalKey || envKey;
-    
-    if (apiKey && apiKey.trim() !== '' && apiKey !== 'your_gemini_api_key_here') {
-      this.apiKey = apiKey.trim();
-      console.log('Gemini API initialized successfully');
-    } else {
-      console.log('Gemini API key not configured - using fallback responses');
-    }
+    console.log('Gemini API initialized with hardcoded key');
   }
 
   setVideoContext(transcript: string, segments: any[], title: string, url: string) {
@@ -49,13 +33,6 @@ class GeminiService {
   }
 
   async generateDetailedResponse(question: string): Promise<AIResponse> {
-    // Re-initialize API key in case it was updated
-    this.initializeApiKey();
-    
-    if (!this.apiKey) {
-      return this.getDetailedFallbackResponse(question);
-    }
-
     try {
       // Add user question to conversation history
       this.conversationHistory.push({ role: 'user', content: question });
@@ -439,9 +416,7 @@ Please provide a detailed, comprehensive response that thoroughly addresses the 
   }
 
   isConfigured(): boolean {
-    // Re-check configuration status
-    this.initializeApiKey();
-    return this.apiKey !== null;
+    return true;
   }
 
   // Method to clear conversation history

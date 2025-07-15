@@ -391,18 +391,10 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ videoData, onBack }) => {
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           </div>
           <span className="text-sm font-medium text-green-600 dark:text-green-400">
-            Gemini Active
+            AI Powered
           </span>
         </div>
       );
-    } else {
-      return (
-        <div className="flex items-center space-x-2">
-          <Video className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-          <span className="text-sm font-medium text-purple-600 dark:text-purple-400">Demo Mode</span>
-        </div>
-      );
-    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -583,23 +575,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ videoData, onBack }) => {
         </div>
       </header>
 
-      {/* AI Status Banner */}
-      {!aiStatus.gemini && (
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-b border-amber-200 dark:border-amber-800 px-4 py-3 transition-colors duration-300">
-          <div className="max-w-4xl mx-auto flex items-center space-x-3 text-sm">
-            <MessageCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-            <div>
-              <span className="text-amber-800 dark:text-amber-300 font-medium">
-                Real-time AI Chat Available!
-              </span>
-              <span className="text-amber-700 dark:text-amber-400 ml-2">
-                Add your Gemini API key to unlock unlimited detailed conversations.
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto px-4 py-6">
         <div className="max-w-4xl mx-auto space-y-6">
@@ -704,10 +679,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ videoData, onBack }) => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder={aiStatus.gemini 
-                  ? "Ask for detailed explanations about the video or any topic..." 
-                  : "Ask about the video content for detailed analysis..."
-                }
+                placeholder="Ask for detailed explanations about the video or any topic..."
                 className="w-full px-5 py-4 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all duration-300 shadow-sm"
                 disabled={isTyping}
               />
@@ -730,12 +702,10 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ videoData, onBack }) => {
           <div className="flex items-center justify-between mt-3 text-xs text-slate-500 dark:text-slate-400">
             <div className="flex items-center space-x-4">
               <span>Press Enter to send</span>
-              {aiStatus.gemini && (
-                <span className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span>Detailed AI responses enabled</span>
-                </span>
-              )}
+              <span className="flex items-center space-x-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span>AI responses enabled</span>
+              </span>
             </div>
             <div className="text-right">
               <span>{currentSession?.title} • {messages.length - 1} messages</span>
