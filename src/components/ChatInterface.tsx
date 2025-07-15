@@ -395,6 +395,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ videoData, onBack }) => {
           </span>
         </div>
       );
+    }
+    
+    return null;
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
